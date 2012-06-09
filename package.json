@@ -1,0 +1,25 @@
+{
+  "author": "Swift <swift@sendgrid.com> (http://theycallmeswift.com/)",
+  "name": "sendgriddemos.com",
+  "description": "A collection of sendgrid demos.",
+  "version": "0.0.0-9",
+  "homepage": "http://sendgridemos.com/",
+  "dependencies": {
+    "express": "2.5.9",
+    "sendgrid": "0.2.2",
+    "socket.io": "0.9.6"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "0.6.x"
+  },
+  "subdomain": "sendgriddemos",
+  "domains": [
+    "sendgriddemos.com",
+    "www.sendgriddemos.com"
+  ],
+  "scripts": {
+    "start": "server.js"
+  }
+}

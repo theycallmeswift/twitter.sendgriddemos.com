@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackMTL SendGrid Demo</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <style>
+      #heading { margin-top: 20px; }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <h1 id="heading">What up #HackMTL?</h1>
+        </div>
+      </div>
+      <div class="row">
+        <p class="span12">Send an email to <a href="mailto:your_username@sendgriddemos.com"><em>your_username</em>@sendgriddemos.com</a> and watch the real-time magic!</p>
+      </div>
+      <hr />
+
+      <div id="main"> </div>
+
+      <hr />
+      <footer class="row">
+        <p class="span12">
+          Composed by <a href="http://theycallmeswift.com/">Swift</a>. Powered by <a href="http://sendgrid.com" title="Email Delivery. Simplified.">SendGrid</a>.
+        </p>
+      </footer>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/gravatar.js"></script>
+    <script>
+      $(document).ready(function(){
+        var socket = io.connect('/')
+          , main = $("#main");
+
+        socket.on('post', function(post) {
+          var emails = post.from.match(/([a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,4})/gi)
+            , email = emails[0].match(/^(.*)@(.*)$/);
+
+          main.prepend('<div class="row"><div class="span8 offset2 well"><div class="post"><div class="span1"><img src="' + get_gravatar(email[0]) + '"></div><div class="span6"><blockquote><p>' + post.subject + '</p><small>' + email[1] + '</small></blockquote></div></div></div></div>');
+        });
+      });
+    </script>
+  </body>
+</html>
