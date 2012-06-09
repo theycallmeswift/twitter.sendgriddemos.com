@@ -2,9 +2,7 @@ var express = require('express')
   , app = express.createServer()
   , io = require('socket.io').listen(app)
   , port = process.env.PORT || 3000
-  , util = require('util')
-  , SendGrid = require('sendgrid').SendGrid
-  , sendgrid = new SendGrid("hackmtl", "hackmtl");
+  , util = require('util');
 
 io.set('log level', 0);
 
