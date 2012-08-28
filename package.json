@@ -2,7 +2,7 @@
   "author": "Swift <swift@sendgrid.com> (http://theycallmeswift.com/)",
   "name": "twitter.sendgriddemos.com",
   "description": "A collection of sendgrid demos.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "http://twitter.sendgridemos.com/",
   "dependencies": {
     "express": "2.5.9",
